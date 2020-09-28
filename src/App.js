@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="2048">
+    <div className="2048 Game">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
