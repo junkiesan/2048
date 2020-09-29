@@ -6,8 +6,23 @@ function App() {
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
-  ])
-  return <div>{JSON.stringify(data)}</div>
+  ]);
+
+  // Initialize
+
+  // Add number
+
+  // Swipe left up right down
+
+  // Check Gameover
+
+  // Reset Game
+  
+  return {data.map(singleRow=>{
+
+  })};
 }
 
 export default App;
+
+<div>{JSON.stringify(data)}</div>
