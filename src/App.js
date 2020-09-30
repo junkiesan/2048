@@ -381,7 +381,6 @@ function App() {
           color: num === 2 || num === 4 ? "#645B52" : "#F7F4EF",
         }}
       >
-        { num }
         {num !== 0 ? num : ""}
       </div>
     );
