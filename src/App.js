@@ -268,7 +268,7 @@ function App() {
   
           break;
         case RIGHT_ARROW:
-          swipeDown();
+          swipeRight();
 
           break;
         default:
@@ -278,6 +278,7 @@ function App() {
 
   useEffect(()=>{
     initialize();
+    document.addEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
