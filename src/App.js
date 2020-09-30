@@ -2,6 +2,12 @@ import cloneDeep from 'lodash.clonedeep';
 import React, { useEffect, useState } from 'react';
 
 function App() {
+
+  const UP_ARROW = 38;
+  const DOWN_ARROW = 40;
+  const LEFT_ARROW = 37;
+  const RIGHT_ARROW = 39;
+
   const [data, setData] = useState([
     [0, 0, 0, 0],
     [0, 0, 0, 0],
@@ -150,7 +156,7 @@ function App() {
     }
   };
   // Swipe up
-  
+
   const swipeUp = (dummy) => {
     console.log("swipe up");
     let b = cloneDeep(data);
@@ -244,6 +250,31 @@ function App() {
   // Check Gameover
 
   // Reset Game
+
+  // Key functions
+
+    const handleKeyDown = (event) => {
+      switch(event.keyCode){
+        case UP_ARROW:
+          swipeUp();
+
+          break;
+        case DOWN_ARROW:
+          swipeDown();
+
+          break;
+        case LEFT_ARROW:
+          swipeLeft();
+  
+          break;
+        case RIGHT_ARROW:
+          swipeDown();
+
+          break;
+        default:
+          break;
+      }
+    }
 
   useEffect(()=>{
     initialize();
