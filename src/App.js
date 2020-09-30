@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import cloneDeep from 'lodash.clonedeep';
+import React, { useEffect, useState } from 'react';
 
 function App() {
   const [data, setData] = useState([
@@ -9,6 +10,19 @@ function App() {
   ]);
 
   // Initialize
+
+  const initialize = () => {
+    // console.log("CALLING INITIALIZE");
+
+    let newGrid = cloneDeep(data);
+    console.log(newGrid);
+
+    addNumber(newGrid);
+    console.table(newGrid);
+    addNumber(newGrid);
+    console.table(newGrid);
+    setData(newGrid);
+  };
 
   // Add number
 
@@ -28,16 +42,16 @@ function App() {
         newGrid[rand1][rand2] = Math.random() > 0.5 ? 2 : 4;
         added = true;
       }
-    //   if (attempts > 50) {
-    //     gridFull = true;
-    //     let gameOverr = checkIfGameOver();
-    //     if (gameOverr) {
-    //       alert("game over");
-    //       // setGameOver(true);
-    //     }
-    //     // setGameOver(true);
-    //   }
-    // }
+      // if (attempts > 50) {
+      //   gridFull = true;
+      //   let gameOverr = checkIfGameOver();
+      //   if (gameOverr) {
+      //     alert("game over");
+      //     // setGameOver(true);
+      //   }
+      //   // setGameOver(true);
+      // }
+    }
   };
 
   // Swipe left up right down
@@ -45,6 +59,10 @@ function App() {
   // Check Gameover
 
   // Reset Game
+
+  useEffect(()=>{
+    initialize();
+  }, []);
 
   return (
     <div
