@@ -16,6 +16,8 @@ function App() {
     [0, 0, 0, 0],
   ]);
 
+  const [gameOver, setGameOver] = useState(false);
+
   // Initialize
 
   const initialize = () => {
@@ -49,15 +51,15 @@ function App() {
         newGrid[rand1][rand2] = Math.random() > 0.5 ? 2 : 4;
         added = true;
       }
-      // if (attempts > 50) {
-      //   gridFull = true;
-      //   let gameOverr = checkIfGameOver();
-      //   if (gameOverr) {
-      //     alert("game over");
-      //     // setGameOver(true);
-      //   }
-      //   // setGameOver(true);
-      // }
+      if (attempts > 50) {
+        gridFull = true;
+        let gameOverr = checkIfGameOver();
+        if (gameOverr) {
+          alert("game over");
+          setGameOver(true);
+        }
+        setGameOver(true);
+      }
     }
   };
 
@@ -284,28 +286,42 @@ function App() {
 
   // Key functions
 
-    const handleKeyDown = (event) => {
-      switch(event.keyCode){
-        case UP_ARROW:
-          swipeUp();
-
-          break;
-        case DOWN_ARROW:
-          swipeDown();
-
-          break;
-        case LEFT_ARROW:
-          swipeLeft();
-  
-          break;
-        case RIGHT_ARROW:
-          swipeRight();
-
-          break;
-        default:
-          break;
-      }
+  const handleKeyDown = (event) => {
+    if (gameOver) {
+      return;
     }
+    switch (event.keyCode) {
+      case UP_ARROW:
+        // alert("up");
+        // console.table(data);
+        swipeUp();
+        // console.table(data);
+        break;
+      case DOWN_ARROW:
+        // console.table(data);
+        swipeDown();
+        // console.table(data);
+        break;
+      case LEFT_ARROW:
+        // console.table(data);
+        swipeLeft();
+        // console.table(data);
+        break;
+      case RIGHT_ARROW:
+        // console.table(data);
+        swipeRight();
+        // console.table(data);
+        break;
+      default:
+        break;
+    }
+
+    let gameOverr = checkIfGameOver();
+    if (gameOverr) {
+      setGameOver(true);
+    }
+  };
+
 
   useEffect(()=>{
     initialize();
