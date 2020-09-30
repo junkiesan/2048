@@ -1,5 +1,6 @@
 import cloneDeep from 'lodash.clonedeep';
 import React, { useEffect, useState } from 'react';
+import { useEvent } from './util';
 
 function App() {
 
@@ -278,8 +279,10 @@ function App() {
 
   useEffect(()=>{
     initialize();
-    document.addEventListener('keydown', handleKeyDown);
+    // document.addEventListener('keydown', handleKeyDown);
   }, []);
+
+  useEvent('keydown', handleKeyDown);
 
   return (
     <div
