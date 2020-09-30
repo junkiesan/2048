@@ -56,9 +56,9 @@ function App() {
         let gameOverr = checkIfGameOver();
         if (gameOverr) {
           alert("game over");
-          setGameOver(true);
+          // setGameOver(true);
         }
-        setGameOver(true);
+        // setGameOver(true);
       }
     }
   };
@@ -284,6 +284,20 @@ function App() {
   };
   // Reset Game
 
+  const resetGame = () => {
+    setGameOver(false);
+    const emptyGrid = [
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+    ];
+
+    addNumber(emptyGrid);
+    addNumber(emptyGrid);
+    setData(emptyGrid);
+  };
+  
   // Key functions
 
   const handleKeyDown = (event) => {
@@ -318,6 +332,7 @@ function App() {
 
     let gameOverr = checkIfGameOver();
     if (gameOverr) {
+      alert("Game Over");
       setGameOver(true);
     }
   };
