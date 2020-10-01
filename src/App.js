@@ -333,7 +333,7 @@ function App() {
 
     let gameOverr = checkIfGameOver();
     if (gameOverr) {
-      alert("Game Over");
+      // alert("Game Over");
       setGameOver(true);
     }
   };
