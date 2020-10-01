@@ -341,7 +341,7 @@ function App() {
 
   useEffect(()=>{
     initialize();
-    // document.addEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line
   }, []);
 
   useEvent('keydown', handleKeyDown);
